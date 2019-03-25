@@ -10,6 +10,7 @@
 enum etat {sain, immunise, malade, mort}; //états possibles des individus
 typedef struct Individu{ //création d'une pour chaque individu
     enum etat statut;
+    int date_debut_maladie;
 } individu;
 
 void initialisation();
@@ -17,8 +18,8 @@ int maladie();
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
-//double gamma; //probabilité d'être immunisé
-int population;
+double gama; //probabilité d'être immunisé
+int population = 20 * 20;
 
 //Initialisation Matrice d'adjacence
 void initialisation() {
@@ -35,7 +36,12 @@ int maladie() {
 int main() {
     srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
     //initialisation();
-    printf("%d",(rand()%100));
+    float p = (float)(rand()%100)/100;
+    printf("%f\n",p);
+    for(int k; k < (population)*1/2; k++)
+    {
+        for(int i = 0; i <)
+    }
     maladie();
     return 0;
 }
