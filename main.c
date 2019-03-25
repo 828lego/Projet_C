@@ -13,7 +13,7 @@ typedef struct Individu{ //création d'une pour chaque individu
     int date_debut_maladie;
 } individu;
 
-void initialisation();
+void initialisation(individu Matrice_adjacence);
 int maladie();
 
 double lambda; //probabilité de tomber malade
@@ -23,8 +23,8 @@ int population = 20 * 20;
 int population_longueur = 20;
 
 //Initialisation Matrice d'adjacence
-void initialisation() {
-    individu Matrice_adjacence[population][population];
+void initialisation(individu Matrice_adjacence) {
+    ;
 }
 
 int maladie() {
@@ -36,14 +36,15 @@ int maladie() {
 
 int main() {
     srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
-    //initialisation();
+    individu Matrice_adjacence[population][population];
+    initialisation(Matrice_adjacence);
     float p = (float)(rand()%100)/100;
     printf("%f\n",p);
     for(int k; k < (population)*1/2; k++)
     {
         for(int i = 0; i < population_longueur; i++)
         {
-
+            if(Matrice_adjacence[i][k].statut == )
         }
     }
     maladie();
