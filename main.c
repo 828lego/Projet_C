@@ -23,6 +23,15 @@ double beta; //probabilité de mourir
 double gamma; //probabilité d'être immunisé
 
 int main() {
-    printf("Hello, World!\n");
+
+    //Initialisation Matrice d'adjacence'
+    int Taille_population;
+    printf("Quelle taille de population voulez vous?");
+    scanf("%d",Taille_population);
+    individu Matrice_adjacence[Taille_population][Taille_population];
+
+
+    for(int k; k < )
     return 0;
 }
+
