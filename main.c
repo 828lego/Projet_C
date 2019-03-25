@@ -6,7 +6,17 @@
 #include "tas.h"
 #include "pFile.h"
 
-enum eType {sain, immunisé, malade, mort};
+enum etat {sain, immunisé, malade, mort}; //états possibles des individus
+
+typedef struct Individu{ //création d'une nouvelle structure
+    int ticket;
+    int heure_arrivee;
+    int duree_attente;
+    int debut_service;
+    int duree_service;
+    int fin_service;
+    struct Individu *suiv;
+} individu;
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
