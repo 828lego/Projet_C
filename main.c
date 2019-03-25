@@ -20,6 +20,7 @@ double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
 double gama; //probabilité d'être immunisé
 int population = 20 * 20;
+int population_longueur = 20;
 
 //Initialisation Matrice d'adjacence
 void initialisation() {
@@ -40,7 +41,10 @@ int main() {
     printf("%f\n",p);
     for(int k; k < (population)*1/2; k++)
     {
-        for(int i = 0; i <)
+        for(int i = 0; i < population_longueur; i++)
+        {
+
+        }
     }
     maladie();
     return 0;
