@@ -6,6 +6,7 @@
 #include "tas.h"
 #include "pFile.h"
 
+
 enum etat {sain, immunise, malade, mort}; //états possibles des individus
 typedef struct Individu{ //création d'une pour chaque individu
     enum etat statut;
@@ -16,7 +17,7 @@ int maladie();
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
-double gamma; //probabilité d'être immunisé
+//double gamma; //probabilité d'être immunisé
 int population;
 
 //Initialisation Matrice d'adjacence
@@ -34,7 +35,7 @@ int maladie() {
 int main() {
     srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
     //initialisation();
-    printf("%d",rand(100));
+    printf("%d",(rand()%100));
     maladie();
     return 0;
 }
