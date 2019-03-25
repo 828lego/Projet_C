@@ -18,12 +18,20 @@ double gamma; //probabilité d'être immunisé
 int population;
 
 //Initialisation Matrice d'adjacence
-
 void initialisation() {
     individu Matrice_adjacence[population][population];
 }
 
+int maladie() {
+    double aleatoire;
+    aleatoire=(double)(rand()%100)/100;
+    printf('%d', aleatoire);
+    return 0;
+}
+
 int main() {
-    initialisation();
+    srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
+    //initialisation();
+    maladie();
     return 0;
 }
