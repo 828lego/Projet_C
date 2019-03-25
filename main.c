@@ -15,16 +15,15 @@ typedef struct Individu{ //création d'une pour chaque individu
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
 double gamma; //probabilité d'être immunisé
+int population;
 
-int main() {
-    //Initialisation Matrice d'adjacence
-    int taille_population;
-    printf("Quelle taille de population voulez vous?");
-    scanf("%d",taille_population);
-    individu Matrice_adjacence[taille_population][taille_population];
+//Initialisation Matrice d'adjacence
 
-
-    for(int k; k < taille_population;k++ )
-    return 0;
+void initialisation() {
+    individu Matrice_adjacence[population][population];
 }
 
+int main() {
+    initialisation();
+    return 0;
+}
