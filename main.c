@@ -31,7 +31,7 @@ int main() {
     individu Matrice_adjacence[Taille_population][Taille_population];
 
 
-    for(int k; k < )
+    for(int k; k < taille_population;k++ )
     return 0;
 }
 
