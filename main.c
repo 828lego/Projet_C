@@ -14,9 +14,9 @@ typedef struct Individu{ //création d'une pour chaque individu
 } individu;
 
 void initialisation(individu Matrice_adjacence);
-void Jour_suivant(individu Matrice_adjacence[population_longueur][20]);
-void etat_future_malade();
-void etat_future_sain();
+void Jour_suivant(individu Matrice_adjacence[][]);
+void etat_future_malade(individu Matrice_adjacence[int population_longueur][int population_longueur]);
+void etat_future_sain(individu Matrice_adjacence[int population_longueur][int population_longueur]);
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
@@ -31,19 +31,18 @@ void initialisation(individu Matrice_adjacence[population_longueur][population_l
     ;
 }
 
-void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]){
-    for(int k; k < population_longueur; k++)
-    {
-        for(int i = 0; i < population_longueur; i++)
-        {
-            if(Matrice_adjacence[i][k].statut == sain)
-                etat_future_sain(Matrice_adjacence);
-            if(Matrice_adjacence[i][k].statut == malade)
-                etat_future_malade(Matrice_adjacence);
+void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]) {
+    for (int k; k < population_longueur; k++) {
+        for (int i = 0; i < population_longueur; i++) {
+            if (Matrice_adjacence[i][k].statut == sain)
+                etat_future_sain(Matrice_adjacence[k][i]);
+            if (Matrice_adjacence[i][k].statut == malade)
+                etat_future_malade(Matrice_adjacence[k][i]);
         }
     }
+}
 
-    void etat_future_malade(individu Matrice_adjacence[population_longueur][population_longueur]) {
+void etat_future_malade(individu Matrice_adjacence[population_longueur][population_longueur]) {
     int a;
     individu i;
     double aleatoire;
@@ -61,7 +60,7 @@ void jour_suivant(individu Matrice_adjacence[population_longueur][population_lon
     }
 }
 
-void etat_future_sain() {
+void etat_future_sain(individu Matrice_adjacence[population_longueur][population_longueur]) {
     individu i;
     double aleatoire;
     aleatoire=(double)(rand()%100)/100;
