@@ -14,6 +14,7 @@ typedef struct Individu{ //création d'une pour chaque individu
 } individu;
 
 void initialisation(individu Matrice_adjacence);
+void Jour_suivant(individu Matrice_adjacence[20][20]);
 void etat_future_malade();
 void etat_future_sain();
 
