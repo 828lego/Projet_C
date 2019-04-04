@@ -60,6 +60,12 @@ void jour_suivant(individu Matrice_adjacence[population_longueur][population_lon
                 etat_future_malade(Matrice_adjacence[k][i]);
         }
     }
+    for(int k = 0; k < population_longueur; k++){
+        for(int i = 0; i < population_longueur; i++){
+            Matrice_adjacence[k][i].statut_actuel = Matrice_adjacence[k][i].statut_future;
+            Matrice_adjacence[k][i].statut_future = none;
+        }
+    }
 }
 
 void etat_future_malade(individu i) {
