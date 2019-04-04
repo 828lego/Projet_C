@@ -6,11 +6,11 @@
 #include "tas.h"
 #include "pFile.h"
 
-enum etat {sain, immunise, malade, mort}; //états possibles des individus
+enum etat {sain, immunise, malade, mort, none}; //états possibles des individus
 
 typedef struct Individu{ //création d'une pour chaque individu
-    enum etat statut;
-    int date_debut_maladie;
+    enum etat statut_actuel;
+    enum etat statut_future;
 } individu;
 
 void initialisation(individu Matrice_adjacence);
@@ -32,7 +32,7 @@ int population_longueur = 20;
 void initialiasation(individu Matrice_adjacence[population_longueur][population_longueur]) {
     for(int k = 0; k < population_longueur; k++){
         for(int i = 0; i < population_longueur; i++){
-            Matrice_adjacence[k][i].statut == sain;
+            Matrice_adjacence[k][i].statut_actuel == sain;
         }
     };
 }
@@ -40,23 +40,23 @@ void initialiasation(individu Matrice_adjacence[population_longueur][population_
 void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]) {
     for (int k; k < population_longueur; k++) {
         for (int i = 0; i < population_longueur; i++) {
-            if (Matrice_adjacence[i][k].statut == sain) {
+            if (Matrice_adjacence[i][k].statut_actuel == sain) {
                 int voisin_malade=0;
-                if (i<population-1 && Matrice_adjacence[i+1][k].statut == malade) {
+                if (i<population-1 && Matrice_adjacence[i+1][k].statut_actuel == malade) {
                     voisin_malade=voisin_malade+1;
                 }
-                if (i>0 && Matrice_adjacence[i-1][k].statut == malade) {
+                if (i>0 && Matrice_adjacence[i-1][k].statut_actuel == malade) {
                     voisin_malade=voisin_malade+1;
                 }
-                if (k<population-1 && Matrice_adjacence[i][k+1].statut == malade) {
+                if (k<population-1 && Matrice_adjacence[i][k+1].statut_actuel == malade) {
                     voisin_malade=voisin_malade+1;
                 }
-                if (k>0 && Matrice_adjacence[i][k-1].statut == malade) {
+                if (k>0 && Matrice_adjacence[i][k-1].statut_actuel == malade) {
                     voisin_malade=voisin_malade+1;
                 }
                 etat_future_sain(Matrice_adjacence[k][i],voisin_malade);
             }
-            if (Matrice_adjacence[i][k].statut == malade)
+            if (Matrice_adjacence[i][k].statut_actuel == malade)
                 etat_future_malade(Matrice_adjacence[k][i]);
         }
     }
@@ -68,14 +68,14 @@ void etat_future_malade(individu i) {
     aleatoire=(double)(rand()%100)/100;
     if (aleatoire<=1-gama) {
         a=0;
-        i.statut = immunise;
+        i.statut_actuel = immunise;
     }
     aleatoire=(double)(rand()%100)/100;
     if (a=!0 && aleatoire<=1-beta) {
-        i.statut = mort;
+        i.statut_actuel = mort;
     }
     else {
-        i.statut = malade;
+        i.statut_actuel = malade;
     }
 }
 
@@ -83,10 +83,10 @@ void etat_future_sain(individu i, int voisin_malade) {
     double aleatoire;
     aleatoire=(double)(rand()%100)/100;
     if (aleatoire<=1-pow(lambda,voisin_malade)) {
-        i.statut = malade;
+        i.statut_actuel = malade;
     }
     else {
-        i.statut = sain;
+        i.statut_actuel = sain;
     }
 }
 
@@ -99,7 +99,7 @@ int main() {
 
     initialisation(Matrice_adjacence[population_longueur][population_longueur]);
 
-    jour_suivant(Matrice_adjacence[population_longueur][population_longueur]);
+    jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]);
 
 
     return 0;
