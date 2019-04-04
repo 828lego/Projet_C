@@ -29,13 +29,16 @@ int population_longueur = 20;
 
 
 //Initialisation Matrice d'adjacence
-void initialiasation(individu Matrice_adjacence[population_longueur][population_longueur]) {
+void initialiasation(individu matrice_adjacence[population_longueur][population_longueur]) {
     for(int k = 0; k < population_longueur; k++){
         for(int i = 0; i < population_longueur; i++){
-            Matrice_adjacence[k][i].statut_actuel = sain;
-            Matrice_adjacence[k][i].statut_future = none;
+            matrice_adjacence[k][i].statut_actuel = sain;
+            matrice_adjacence[k][i].statut_future = none;
         }
-    };
+    }
+    int abscisse = rand()%(population_longueur);
+    int ordonnée = rand()%(population_longueur);
+    matrice_adjacence[abscisse][ordonnée].statut_actuel = malade;
 }
 
 void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]) {
