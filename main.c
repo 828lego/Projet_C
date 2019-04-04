@@ -33,7 +33,7 @@ void initialisation(individu Matrice_adjacence[population_longueur][population_l
     ;
 }
 
-void Jour_suivant(individu Matrice_adjacence[20][20]){
+void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]){
     for(int k; k < population_longueur; k++)
     {
         for(int i = 0; i < population_longueur; i++)
