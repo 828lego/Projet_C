@@ -36,9 +36,9 @@ void initialiasation(individu matrice_adjacence[population_longueur][population_
             matrice_adjacence[k][i].statut_future = none;
         }
     }
-    int abscisse = rand()%(population_longueur);
-    int ordonnée = rand()%(population_longueur);
-    matrice_adjacence[abscisse][ordonnée].statut_actuel = malade;
+    int abscisse = (int)rand()%(population_longueur);
+    int ordonnee = (int)rand()%(population_longueur);
+    matrice_adjacence[abscisse][ordonnee].statut_actuel = malade;
 }
 
 void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]) {
