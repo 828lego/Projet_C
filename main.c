@@ -31,7 +31,7 @@ void initialisation(individu Matrice_adjacence) {
     ;
 }
 
-void etat_future_malade() {
+void etat_future_malade(individu Individus[20][20]) {
     int a;
     individu i;
     double aleatoire;
@@ -62,7 +62,8 @@ int main() {
     {
         for(int i = 0; i < population_longueur; i++)
         {
-            if(Matrice_adjacence[i][k].statut == )
+            if(Matrice_adjacence[i][k].statut == sain)
+                Matrice_adjacence[i][k].statut == etat_future_malade
         }
 
     etat_future_malade();
