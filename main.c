@@ -63,7 +63,7 @@ int main() {
         for(int i = 0; i < population_longueur; i++)
         {
             if(Matrice_adjacence[i][k].statut == sain){
-                Matrice_adjacence[i][k] = etat_futur_du_sain(Matrice_adjacence);
+                Matrice_adjacence[i][k] = etat_futur_sain(Matrice_adjacence);
             }
         }
     }
