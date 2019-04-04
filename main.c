@@ -62,6 +62,20 @@ void etat_future_sain() {
     }
 }
 
+void (){
+    for(int k; k < (population)*1/2; k++)
+    {
+        for(int i = 0; i < population_longueur; i++)
+            {
+                if(Matrice_adjacence[i][k].statut == sain)
+                    etat_future_sain(Matrice_adjacence);
+                if(Matrice_adjacence[i][k].statut == malade)
+                    etat_future_malade(Matrice_adjacence);
+}
+}
+
+
+
 int main() {
     srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
 
@@ -71,15 +85,7 @@ int main() {
     initialisation(Matrice_adjacence);
     float p = (float)(rand()%100)/100;
     printf("%f\n",p);
-    for(int k; k < (population)*1/2; k++)
-    {
-        for(int i = 0; i < population_longueur; i++)
-        {
-            if(Matrice_adjacence[i][k].statut == sain)
-               etat_future_sain(Matrice_adjacence);
-            if(Matrice_adjacence[i][k].statut == malade)
-                etat_future_malade(Matrice_adjacence);
-        }
+
     etat_future_malade();
     etat_future_sain();
     return 0;
