@@ -62,7 +62,7 @@ void etat_future_sain() {
     }
 }
 
-void Jour_suivant(){
+void Jour_suivant(individu Matrice_adjacence[20][20]){
     for(int k; k < (population)*1/2; k++)
     {
         for(int i = 0; i < population_longueur; i++)
@@ -79,7 +79,6 @@ int main() {
     srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
 
     //initialisation();
-
     individu Matrice_adjacence[population_longueur][population_longueur];
     initialisation(Matrice_adjacence);
 
