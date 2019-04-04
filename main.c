@@ -14,7 +14,7 @@ typedef struct Individu{ //création d'une pour chaque individu
 } individu;
 
 void initialisation(individu Matrice_adjacence);
-void Jour_suivant(individu Matrice_adjacence[20][20]);
+void Jour_suivant(individu Matrice_adjacence[population_longueur][20]);
 void etat_future_malade();
 void etat_future_sain();
 
@@ -29,7 +29,7 @@ int population_longueur = 20;
 
 
 //Initialisation Matrice d'adjacence
-void initialisation(individu Matrice_adjacence) {
+void initialisation(individu Matrice_adjacence[population_longueur][population_longueur]) {
     ;
 }
 
@@ -45,7 +45,7 @@ void Jour_suivant(individu Matrice_adjacence[20][20]){
         }
     }
 
-    void etat_future_malade(individu Individus[20][20]) {
+    void etat_future_malade(individu Matrice_adjacence[20][20]) {
     int a;
     individu i;
     double aleatoire;
