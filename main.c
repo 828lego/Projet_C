@@ -62,7 +62,7 @@ void etat_future_sain() {
     }
 }
 
-void (){
+void Jour_suivant(){
     for(int k; k < (population)*1/2; k++)
     {
         for(int i = 0; i < population_longueur; i++)
@@ -71,9 +71,8 @@ void (){
                     etat_future_sain(Matrice_adjacence);
                 if(Matrice_adjacence[i][k].statut == malade)
                     etat_future_malade(Matrice_adjacence);
-}
-}
-
+            }
+    }
 
 
 int main() {
@@ -81,12 +80,10 @@ int main() {
 
     //initialisation();
 
-    individu Matrice_adjacence[population][population];
+    individu Matrice_adjacence[population_longueur][population_longueur];
     initialisation(Matrice_adjacence);
-    float p = (float)(rand()%100)/100;
-    printf("%f\n",p);
 
-    etat_future_malade();
-    etat_future_sain();
+
+
     return 0;
 }
