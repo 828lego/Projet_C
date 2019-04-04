@@ -15,8 +15,8 @@ typedef struct Individu{ //création d'une pour chaque individu
 
 void initialisation(individu Matrice_adjacence);
 void Jour_suivant(individu Matrice_adjacence[][]);
-void etat_future_malade(individu Matrice_adjacence[int population_longueur][int population_longueur]);
-void etat_future_sain(individu Matrice_adjacence[int population_longueur][int population_longueur]);
+void etat_future_malade(individu Matrice_adjacence[][]);
+void etat_future_sain(individu Matrice_adjacence[][]);
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
@@ -42,7 +42,7 @@ void jour_suivant(individu Matrice_adjacence[population_longueur][population_lon
     }
 }
 
-void etat_future_malade(individu Matrice_adjacence[population_longueur][population_longueur]) {
+void etat_future_malade(individu i) {
     int a;
     individu i;
     double aleatoire;
@@ -60,11 +60,10 @@ void etat_future_malade(individu Matrice_adjacence[population_longueur][populati
     }
 }
 
-void etat_future_sain(individu Matrice_adjacence[population_longueur][population_longueur]) {
-    individu i;
+void etat_future_sain(individu i, int voisin_malade) {
     double aleatoire;
     aleatoire=(double)(rand()%100)/100;
-    if (aleatoire<=1-lambda) {
+    if (aleatoire<=1-pow(lambda,voisin_malade) {
         i.statut = malade;
     }
     else {
