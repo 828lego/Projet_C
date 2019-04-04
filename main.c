@@ -81,6 +81,7 @@ int main() {
 
     //initialisation();
     individu Matrice_adjacence[population_longueur][population_longueur];
+
     initialisation(Matrice_adjacence);
 
     jour_suivant(Matrice_adjacence);
