@@ -15,9 +15,9 @@ typedef struct Individu{ //création d'une pour chaque individu
 
 void initialisation(individu Matrice_adjacence);
 
-void jour_suivant(individu Matrice_adjacence[][]);
-void etat_future_malade(individu i; int voison_malade);
-void etat_future_sain(individu i);
+void jour_suivant(individu Matrice_adjacence);
+void etat_future_malade(individu i);
+void etat_future_sain(individu i, int voisin_malade);
 
 
 double lambda; //probabilité de tomber malade
@@ -42,16 +42,16 @@ void jour_suivant(individu Matrice_adjacence[population_longueur][population_lon
         for (int i = 0; i < population_longueur; i++) {
             if (Matrice_adjacence[i][k].statut == sain) {
                 int voisin_malade=0;
-                if (Matrice_adjacence[i+1][k].statut == malade) {
+                if (i<population-1 && Matrice_adjacence[i+1][k].statut == malade) {
                     voisin_malade=voisin_malade+1;
                 }
-                if (Matrice_adjacence[i-1][k].statut == malade) {
+                if (i>0 && Matrice_adjacence[i-1][k].statut == malade) {
                     voisin_malade=voisin_malade+1;
                 }
-                if (Matrice_adjacence[i+1][k+1].statut == malade) {
+                if (k<population-1 && Matrice_adjacence[i][k+1].statut == malade) {
                     voisin_malade=voisin_malade+1;
                 }
-                if (Matrice_adjacence[i+1][k-1].statut == malade) {
+                if (k>0 && Matrice_adjacence[i][k-1].statut == malade) {
                     voisin_malade=voisin_malade+1;
                 }
                 etat_future_sain(Matrice_adjacence[k][i],voisin_malade);
@@ -64,7 +64,6 @@ void jour_suivant(individu Matrice_adjacence[population_longueur][population_lon
 
 void etat_future_malade(individu i) {
     int a;
-    individu i;
     double aleatoire;
     aleatoire=(double)(rand()%100)/100;
     if (aleatoire<=1-gama) {
@@ -83,7 +82,7 @@ void etat_future_malade(individu i) {
 void etat_future_sain(individu i, int voisin_malade) {
     double aleatoire;
     aleatoire=(double)(rand()%100)/100;
-    if (aleatoire<=1-pow(lambda,voisin_malade) {
+    if (aleatoire<=1-pow(lambda,voisin_malade)) {
         i.statut = malade;
     }
     else {
@@ -100,7 +99,7 @@ int main() {
 
     initialisation(Matrice_adjacence[population_longueur][population_longueur]);
 
-    jour_suivant(Matrice_adjacence);
+    jour_suivant(Matrice_adjacence[population_longueur][population_longueur]);
 
 
     return 0;
