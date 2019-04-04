@@ -65,6 +65,9 @@ int main() {
             if(Matrice_adjacence[i][k].statut == sain){
                 Matrice_adjacence[i][k] = etat_futur_sain(Matrice_adjacence);
             }
+            if(Matrice_adjacence[i][k].statut == malade) {
+                Matrice_adjacence[i][k] = etat_futur_sain(Matrice_adjacence);
+            }
         }
     }
 >>>>>>> origin/master
