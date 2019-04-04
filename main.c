@@ -32,7 +32,19 @@ void initialisation(individu Matrice_adjacence) {
     ;
 }
 
-void etat_future_malade(individu Individus[20][20]) {
+void Jour_suivant(individu Matrice_adjacence[20][20]){
+    for(int k; k < population_longueur; k++)
+    {
+        for(int i = 0; i < population_longueur; i++)
+        {
+            if(Matrice_adjacence[i][k].statut == sain)
+                etat_future_sain(Matrice_adjacence);
+            if(Matrice_adjacence[i][k].statut == malade)
+                etat_future_malade(Matrice_adjacence);
+        }
+    }
+
+    void etat_future_malade(individu Individus[20][20]) {
     int a;
     individu i;
     double aleatoire;
@@ -62,18 +74,6 @@ void etat_future_sain() {
     }
 }
 
-void Jour_suivant(individu Matrice_adjacence[20][20]){
-    for(int k; k < (population)*1/2; k++)
-    {
-        for(int i = 0; i < population_longueur; i++)
-            {
-                if(Matrice_adjacence[i][k].statut == sain)
-                    etat_future_sain(Matrice_adjacence);
-                if(Matrice_adjacence[i][k].statut == malade)
-                    etat_future_malade(Matrice_adjacence);
-            }
-    }
-
 
 int main() {
     srand(time(NULL)); // permet d'avoir tout le temps des nombres aléatoires
@@ -82,6 +82,7 @@ int main() {
     individu Matrice_adjacence[population_longueur][population_longueur];
     initialisation(Matrice_adjacence);
 
+    jour_suivant(Matrice_adjacence);
 
 
     return 0;
