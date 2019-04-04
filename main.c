@@ -14,7 +14,10 @@ typedef struct Individu{ //création d'une pour chaque individu
 } individu;
 
 void initialisation(individu Matrice_adjacence);
-int maladie();
+enum etat_futur_sain(Matrice_adjacence);
+enum etat_futur_malade(Matrice_adjacence);
+enum maladie();
+
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
@@ -31,7 +34,7 @@ void initialisation(individu Matrice_adjacence) {
 
 }
 
-int maladie() {
+enum maladie() {
     int a;
     individu i;
     double aleatoire;
