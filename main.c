@@ -76,7 +76,9 @@ int main() {
         for(int i = 0; i < population_longueur; i++)
         {
             if(Matrice_adjacence[i][k].statut == sain)
-                Matrice_adjacence[i][k].statut == etat_future_malade
+               etat_future_sain(Matrice_adjacence);
+            if(Matrice_adjacence[i][k].statut == malade)
+                etat_future_malade(Matrice_adjacence);
         }
     etat_future_malade();
     etat_future_sain();
