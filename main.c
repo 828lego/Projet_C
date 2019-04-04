@@ -22,8 +22,6 @@ double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
 double gama; //probabilité d'être immunisé
 
-int population;
-
 int population = 20 * 20;
 int population_longueur = 20;
 
