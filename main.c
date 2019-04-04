@@ -32,7 +32,8 @@ int population_longueur = 20;
 void initialiasation(individu Matrice_adjacence[population_longueur][population_longueur]) {
     for(int k = 0; k < population_longueur; k++){
         for(int i = 0; i < population_longueur; i++){
-            Matrice_adjacence[k][i].statut_actuel == sain;
+            Matrice_adjacence[k][i].statut_actuel = sain;
+            Matrice_adjacence[k][i].statut_future = none;
         }
     };
 }
@@ -68,6 +69,18 @@ void jour_suivant(individu Matrice_adjacence[population_longueur][population_lon
     }
 }
 
+void etat_future_sain(individu i, int voisin_malade) {
+    double aleatoire;
+    aleatoire=(double)(rand()%100)/100;
+    if (aleatoire<=1-pow(lambda,voisin_malade)) {
+        i.statut_actuel = malade;
+    }
+    else {
+        i.statut_actuel = sain;
+    }
+}
+
+
 void etat_future_malade(individu i) {
     int a;
     double aleatoire;
@@ -85,16 +98,6 @@ void etat_future_malade(individu i) {
     }
 }
 
-void etat_future_sain(individu i, int voisin_malade) {
-    double aleatoire;
-    aleatoire=(double)(rand()%100)/100;
-    if (aleatoire<=1-pow(lambda,voisin_malade)) {
-        i.statut_actuel = malade;
-    }
-    else {
-        i.statut_actuel = sain;
-    }
-}
 
 
 int main() {
