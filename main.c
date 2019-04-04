@@ -14,15 +14,11 @@ typedef struct Individu{ //création d'une pour chaque individu
 } individu;
 
 void initialisation(individu Matrice_adjacence);
-<<<<<<< HEAD
-void Jour_suivant(individu Matrice_adjacence);
-void etat_future_malade(individu Matrice_adjacence);
-void etat_future_sain(individu Matrice_adjacence);
-=======
-void Jour_suivant(individu Matrice_adjacence[][]);
-void etat_future_malade(individu Matrice_adjacence[][]);
-void etat_future_sain(individu Matrice_adjacence[][]);
->>>>>>> origin/master
+
+void jour_suivant(individu Matrice_adjacence[][]);
+void etat_future_malade(individu i; int voison_malade);
+void etat_future_sain(individu i);
+
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
