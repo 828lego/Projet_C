@@ -14,9 +14,9 @@ typedef struct Individu{ //création d'une pour chaque individu
 } individu;
 
 void initialisation(individu Matrice_adjacence);
-void Jour_suivant(individu Matrice_adjacence[][]);
-void etat_future_malade(individu Matrice_adjacence[int population_longueur][int population_longueur]);
-void etat_future_sain(individu Matrice_adjacence[int population_longueur][int population_longueur]);
+void Jour_suivant(individu Matrice_adjacence);
+void etat_future_malade(individu Matrice_adjacence);
+void etat_future_sain(individu Matrice_adjacence);
 
 double lambda; //probabilité de tomber malade
 double beta; //probabilité de mourir
@@ -27,8 +27,12 @@ int population_longueur = 20;
 
 
 //Initialisation Matrice d'adjacence
-void initialisation(individu Matrice_adjacence[population_longueur][population_longueur]) {
-    ;
+void initialiasation(individu Matrice_adjacence[population_longueur][population_longueur]) {
+    for(int k = 0; k < population_longueur; k++){
+        for(int i = 0; i < population_longueur; i++){
+            Matrice_adjacence[k][i].statut == sain;
+        }
+    };
 }
 
 void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]) {
@@ -79,7 +83,7 @@ int main() {
     //initialisation();
     individu Matrice_adjacence[population_longueur][population_longueur];
 
-    initialisation(Matrice_adjacence);
+    initialisation(Matrice_adjacence[population_longueur][population_longueur]);
 
     jour_suivant(Matrice_adjacence);
 
