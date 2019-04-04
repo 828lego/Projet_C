@@ -44,8 +44,22 @@ void initialiasation(individu Matrice_adjacence[population_longueur][population_
 void jour_suivant(individu Matrice_adjacence[population_longueur][population_longueur]) {
     for (int k; k < population_longueur; k++) {
         for (int i = 0; i < population_longueur; i++) {
-            if (Matrice_adjacence[i][k].statut == sain)
-                etat_future_sain(Matrice_adjacence[k][i]);
+            if (Matrice_adjacence[i][k].statut == sain) {
+                int voisin_malade=0;
+                if (Matrice_adjacence[i+1][k].statut == malade) {
+                    voisin_malade=voisin_malade+1;
+                }
+                if (Matrice_adjacence[i-1][k].statut == malade) {
+                    voisin_malade=voisin_malade+1;
+                }
+                if (Matrice_adjacence[i+1][k+1].statut == malade) {
+                    voisin_malade=voisin_malade+1;
+                }
+                if (Matrice_adjacence[i+1][k-1].statut == malade) {
+                    voisin_malade=voisin_malade+1;
+                }
+                etat_future_sain(Matrice_adjacence[k][i],voisin_malade);
+            }
             if (Matrice_adjacence[i][k].statut == malade)
                 etat_future_malade(Matrice_adjacence[k][i]);
         }
