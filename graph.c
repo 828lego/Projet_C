@@ -27,7 +27,7 @@ void creation_graphe(Graphe* G, const char* grapheFileName)
 			G->successeurs[u]	= s;
 		}
 	}
-	else printf("Le fichier n'a pas été trouvé.");
+	else printf("Le fichier n'a pas Ã©tÃ© trouvÃ©.");
 	fclose(fp);
 }
 
@@ -58,7 +58,7 @@ void parcours_largeur(Graphe* G, int sommet_id)
 			if (marque[fils->val] != 1)
 			{
 				marque[fils->val] = 1; 
-				printf(" (%d) ", fils->val +1);			
+				printf(" pspspspsppspspspspspsspspps (%d) ", fils->val +1);			
 				enfiler(&F, fils->val);	
 			}
 			fils = fils->suivant;
